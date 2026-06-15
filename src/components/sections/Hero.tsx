@@ -38,8 +38,9 @@ export default function Hero() {
         </p>
 
         <a
-          href="#contato"
-          onClick={smoothScroll}
+            href="https://api.whatsapp.com/send/?phone=553598632437&text=Olá!%20Gostaria%20de%20saber%20agendar%20uma%20aula%20gratuita!"
+            target="_blank"
+            rel="noopener noreferrer"
           className="
             inline-block bg-[#ff0000] text-white font-body text-[1.3rem] font-black
             tracking-[2px] no-underline px-14 py-[1.1rem] rounded-full border-none

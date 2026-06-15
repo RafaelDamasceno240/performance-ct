@@ -8,7 +8,7 @@ export default function SectionBg({ animate = false }: SectionBgProps) {
   return (
     <>
       <div
-        className={`absolute inset-0 bg-cover bg-center bg-fixed z-0 ${animate ? 'hero-bg-anim' : ''}`}
+        className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat z-0"
         style={{ backgroundImage: `url('${BG_IMAGE}')` }}
       />
       <div className="absolute inset-0 bg-black/72 z-[1]" />

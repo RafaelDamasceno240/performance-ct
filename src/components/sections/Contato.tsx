@@ -21,7 +21,7 @@ export default function Contato() {
           {/* Social + info */}
           <div className="flex flex-col gap-6">
             <a
-              href="https://wa.me/5535998443866"
+              href="https://api.whatsapp.com/send/?phone=553598632437&text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -35,12 +35,12 @@ export default function Contato() {
               <WhatsAppIcon className="w-10 h-10 text-[#ff0000] flex-shrink-0" />
               <div>
                 <div className="text-sm text-white/55 uppercase tracking-wider mb-0.5">WhatsApp</div>
-                <div className="text-lg font-bold">(35) 99844-3866</div>
+                <div className="text-lg font-bold">(35) 9863-2437</div>
               </div>
             </a>
 
             <a
-              href="https://www.instagram.com/performancect_coqueiral"
+              href="https://www.instagram.com/aperformancect/"
               target="_blank"
               rel="noopener noreferrer"
               className="
@@ -54,22 +54,22 @@ export default function Contato() {
               <InstagramIcon className="w-10 h-10 text-[#ff0000] flex-shrink-0" />
               <div>
                 <div className="text-sm text-white/55 uppercase tracking-wider mb-0.5">Instagram</div>
-                <div className="text-lg font-bold">@performancect_coqueiral</div>
+                <div className="text-lg font-bold">@aperformancect</div>
               </div>
             </a>
 
             <div className="bg-black/25 border border-white/10 rounded-2xl px-7 py-5 backdrop-blur-sm">
               <div className="text-sm text-white/55 uppercase tracking-wider mb-1">Endereço</div>
               <div className="font-semibold leading-relaxed text-white/90">
-                R. Bela Vista, 174 – Coqueiral, MG, 37.530-000
+                R. Matias Borges, 139 - Centro, Coqueiral - MG, 37235-000
               </div>
             </div>
 
             <div className="bg-black/25 border border-white/10 rounded-2xl px-7 py-5 backdrop-blur-sm">
               <div className="text-sm text-white/55 uppercase tracking-wider mb-2">Horários</div>
               <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-sm text-white/85">
-                <span className="text-white/50">Seg – Sex</span><span className="font-semibold">06h – 22h</span>
-                <span className="text-white/50">Sábado</span><span className="font-semibold">08h – 14h</span>
+                <span className="text-white/50">Seg – Sex</span><span className="font-semibold">04:45 – 22:00</span>
+                <span className="text-white/50">Sábado</span><span className="font-semibold">08:00 – 12:00</span>
                 <span className="text-white/50">Domingo</span><span className="font-semibold">Fechado</span>
               </div>
             </div>
@@ -78,7 +78,7 @@ export default function Contato() {
           {/* Map */}
           <div className="rounded-2xl overflow-hidden shadow-[0_0_40px_rgba(255,0,0,0.2),0_0_0_2px_rgba(255,0,0,0.2)] h-[440px] max-[900px]:h-[280px]">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3738.4!2d-45.4333!3d-21.1833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sR.+Bela+Vista%2C+174+-+Coqueiral%2C+MG!5e0!3m2!1spt-BR!2sbr!4v1000000000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1490.643355474704!2d-45.48056159518177!3d-21.18958744111307!2m3!1f0!2f0!3f0!3m2!1i1024!2i1024!4h16!3m3!1m2!1s0x94b46571556817b1%3A0xe726487e411b90c1!2sR.%20Matias%20Borges%2C%20139%20-%20Centro%2C%20Coqueiral%20-%20MG%2C%2037235-000!5e0!3m2!1spt-BR!2sbr!4v1709664478200!5m2!1spt-BR!2sbr"
               width="100%"
               height="100%"
               style={{ border: 0 }}
