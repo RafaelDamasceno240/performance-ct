@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;900&display=swap');
+
+:root {
+  --nav-h: 80px;
+}
+
+@media (max-width: 640px) {
+  :root { --nav-h: 68px; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #ff0000; border-radius: 3px; }
+
+/* Reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero background zoom */
+@keyframes heroZoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+.hero-bg-anim {
+  animation: heroZoom 12s ease-in-out infinite alternate;
+}
+
+/* Map dark filter */
+.map-filter {
+  filter: invert(90%) hue-rotate(180deg) saturate(0.8);
+}
+
+/* Hamburger transforms */
+.hamburger-open .bar-1 { transform: translateY(7.5px) rotate(45deg); }
+.hamburger-open .bar-2 { opacity: 0; transform: scaleX(0); }
+.hamburger-open .bar-3 { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* Section padding using CSS variable */
+.section-padding {
+  padding-top: calc(var(--nav-h) + 3rem);
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 640px) {
+  .section-padding {
+    padding-top: calc(var(--nav-h) + 2rem);
+    padding-bottom: 3rem;
+  }
+}
