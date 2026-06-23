@@ -8,16 +8,14 @@ interface SectionBgProps {
 export default function SectionBg({ animate = false }: SectionBgProps) {
   return (
     <>
-      {/* 1. IMAGEM PARA CELULAR (Mobile)
-          - Ajustado para 'absolute' em vez de fixed para não quebrar o empilhamento (z-index) do Next.js no mobile.
-          - Para ficar estática e simular o efeito perfeitamente no celular, o segredo é usar a propriedade inline backgroundAttachment.
+      {/* 1. IMAGEM PARA CELULAR (Mobile - Especial para iPhone)
+          - Usamos 'fixed' na classe para travar a div inteira na tela do celular.
+          - Tiramos o backgroundAttachment inline que buga o iOS.
+          - 'pointer-events-none': Garante que o usuário consiga clicar nos botões e scrollar a página normalmente através do fundo.
       */}
       <div
-        className="block md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ 
-          backgroundImage: `url('${BG_MOBILE}')`,
-          backgroundAttachment: 'fixed' // Força a imagem a ficar travada no fundo do celular
-        }}
+        className="block md:hidden fixed inset-0 bg-cover bg-center bg-no-repeat pointer-events-none z-0"
+        style={{ backgroundImage: `url('${BG_MOBILE}')` }}
       />
 
       {/* 2. IMAGEM PARA COMPUTADOR (Desktop) */}
@@ -27,9 +25,9 @@ export default function SectionBg({ animate = false }: SectionBgProps) {
       />
 
       {/* 3. CAMADA ESCURA (Overlay)
-          - Reduzida a opacidade de bg-black/75 para bg-black/50 para que a foto da academia apareça nitidamente atrás do texto.
+          - No mobile ela também fica 'fixed' acompanhando a imagem estática perfeita.
       */}
-      <div className="absolute inset-0 bg-black/50 z-[1]" />
+      <div className="fixed md:absolute inset-0 bg-black/50 pointer-events-none z-[1]" />
     </>
   )
 }
