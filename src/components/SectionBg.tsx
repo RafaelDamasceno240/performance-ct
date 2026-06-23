@@ -8,7 +8,8 @@ export default function SectionBg({ animate = false }: SectionBgProps) {
   return (
     <>
       <div
-        className="absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat z-0"
+        /* ALTERAÇÃO AQUI: bg-scroll por padrão no celular, md:bg-fixed apenas no desktop */
+        className="absolute inset-0 bg-cover bg-center bg-scroll md:bg-fixed bg-no-repeat z-0"
         style={{ backgroundImage: `url('${BG_IMAGE}')` }}
       />
       <div className="absolute inset-0 bg-black/72 z-[1]" />
