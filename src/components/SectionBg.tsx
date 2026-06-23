@@ -7,12 +7,21 @@ interface SectionBgProps {
 export default function SectionBg({ animate = false }: SectionBgProps) {
   return (
     <>
+      {/* 
+        Mudança chave: Usamos `fixed` no mobile para forçar a imagem a cobrir o viewport,
+        e no desktop mantemos o comportamento absolute controlado.
+      */}
       <div
-        /* ALTERAÇÃO AQUI: bg-scroll por padrão no celular, md:bg-fixed apenas no desktop */
-        className="absolute inset-0 bg-cover bg-center bg-scroll md:bg-fixed bg-no-repeat z-0"
-        style={{ backgroundImage: `url('${BG_IMAGE}')` }}
+        className="fixed md:absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{ 
+          backgroundImage: `url('${BG_IMAGE}')`,
+          /* Garante suporte nativo a navegadores mobile antigos que ignoram o bg-cover do Tailwind */
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
       />
-      <div className="absolute inset-0 bg-black/72 z-[1]" />
+      {/* O overlay escuro acompanha o mesmo comportamento */}
+      <div className="fixed md:absolute inset-0 bg-black/72 z-[1]" />
     </>
   )
 }
