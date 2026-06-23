@@ -8,28 +8,28 @@ interface SectionBgProps {
 export default function SectionBg({ animate = false }: SectionBgProps) {
   return (
     <>
-      {/* 1. IMAGEM PARA TELEMÓVEL (Mobile)
-          - block md:hidden -> Aparece APENAS no telemóvel.
-          - bg-cover bg-center bg-scroll -> O fundo adapta-se ao telemóvel e acompanha o teu dedo no scroll sem cortar.
+      {/* 1. IMAGEM PARA CELULAR (Mobile)
+          - Ajustado para 'absolute' em vez de fixed para não quebrar o empilhamento (z-index) do Next.js no mobile.
+          - Para ficar estática e simular o efeito perfeitamente no celular, o segredo é usar a propriedade inline backgroundAttachment.
       */}
       <div
-        className="block md:hidden absolute inset-0 bg-cover bg-center bg-scroll bg-no-repeat z-0"
-        style={{ backgroundImage: `url('${BG_MOBILE}')` }}
+        className="block md:hidden absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        style={{ 
+          backgroundImage: `url('${BG_MOBILE}')`,
+          backgroundAttachment: 'fixed' // Força a imagem a ficar travada no fundo do celular
+        }}
       />
 
-      {/* 2. IMAGEM PARA COMPUTADOR (Desktop)
-          - hidden md:block -> Aparece APENAS a partir de ecrãs médios (PC/Portátil).
-          - bg-cover bg-center bg-fixed -> Mantém o efeito fixo (parallax) que já funcionava bem no PC.
-      */}
+      {/* 2. IMAGEM PARA COMPUTADOR (Desktop) */}
       <div
         className="hidden md:block absolute inset-0 bg-cover bg-center bg-fixed bg-no-repeat z-0"
         style={{ backgroundImage: `url('${BG_DESKTOP}')` }}
       />
 
       {/* 3. CAMADA ESCURA (Overlay)
-          - absolute inset-0 -> Garante que o fundo escuro cobre as imagens por igual para dar leitura ao teu texto.
+          - Reduzida a opacidade de bg-black/75 para bg-black/50 para que a foto da academia apareça nitidamente atrás do texto.
       */}
-      <div className="absolute inset-0 bg-black/75 z-[1]" />
+      <div className="absolute inset-0 bg-black/50 z-[1]" />
     </>
   )
 }
