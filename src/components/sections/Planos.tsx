@@ -5,7 +5,7 @@ import PlanCard from '@/components/PlanCard'
 import { useReveal } from '@/components/useReveal'
 import type { Plan } from '@/types'
 
-const CHECKOUT_URL = 'https://venda.nextfit.com.br/c1f263af-21a8-4d77-9418-91adeeed8b7c/contratos'
+const CHECKOUT_URL = 'https://api.whatsapp.com/send/?phone=553598632437&text=Olá!%20Gostaria%20de%20saber%20sobre%20os%20planos!'
 
 const PLANS: Plan[] = [
   { id: '6x-mensal',    name: 'Musculação 6x Mensal',    monthlyPrice: '100,00', totalPrice: '100,00',  checkoutUrl: CHECKOUT_URL },
