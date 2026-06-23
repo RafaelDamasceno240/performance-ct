@@ -5,10 +5,10 @@ import Image from 'next/image'
 import type { NavLink } from '@/types'
 
 const NAV_LINKS: NavLink[] = [
-  { href: '#home',    label: 'home' },
-  { href: '#sobre',   label: 'sobre' },
-  { href: '#planos',  label: 'planos' },
-  { href: '#contato', label: 'contato' },
+  { href: '#home',    label: 'Home' },
+  { href: '#sobre',   label: 'Sobre' },
+  { href: '#planos',  label: 'Planos' },
+  { href: '#contato', label: 'Contato' },
 ]
 
 export default function Navbar() {
@@ -115,7 +115,7 @@ export default function Navbar() {
                 href={href}
                 onClick={(e) => smoothScroll(e, href)}
                 className={`
-                  relative text-white no-underline text-base font-bold tracking-wide lowercase
+                  relative text-white no-underline text-base font-bold tracking-wide uppsercase
                   transition-colors duration-300 hover:text-[#ff0000]
                   after:content-[''] after:absolute after:left-0 after:bottom-[-4px]
                   after:h-[2px] after:bg-[#ff0000] after:transition-[width] after:duration-300

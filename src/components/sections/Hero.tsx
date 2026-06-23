@@ -38,7 +38,7 @@ export default function Hero() {
         </p>
 
         <a
-            href="https://api.whatsapp.com/send/?phone=553598632437&text=Olá!%20Gostaria%20de%20saber%20agendar%20uma%20aula%20gratuita!"
+            href="https://api.whatsapp.com/send/?phone=553598632437&text=Olá!%20Gostaria%20de%20agendar%20uma%20aula%20gratuita!"
             target="_blank"
             rel="noopener noreferrer"
           className="

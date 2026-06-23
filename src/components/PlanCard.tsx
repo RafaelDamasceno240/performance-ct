@@ -22,7 +22,7 @@ export default function PlanCard({ name, monthlyPrice, totalPrice, checkoutUrl }
           <span className="font-body text-[1.4rem] font-black text-[#ff0000] mt-2.5 max-sm:text-[1.1rem]">
             R$
           </span>
-          <span className="font-display text-[clamp(3.5rem,6vw,5.5rem)] tracking-[2px] text-white leading-none max-sm:text-[4rem]">
+          <span className="font-display text-[clamp(3.5rem,3vw,5.5rem)] tracking-[2px] text-white leading-none max-sm:text-[4rem]">
             {monthlyPrice}
           </span>
         </div>

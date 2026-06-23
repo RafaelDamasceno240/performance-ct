@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@glitchlab/accessify':
+        specifier: ^0.2.5
+        version: 0.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       next:
         specifier: ^14.2.0
         version: 14.2.35(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -78,6 +81,23 @@ packages:
   '@eslint/js@8.57.1':
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
+  '@glitchlab/accessify@0.2.5':
+    resolution: {integrity: sha512-Q9dC0XmV3rEFARM0rZtcTxaK5Hc4Xj4Tr+VyGkLURUzx9UfQxWy7w3GvpzIRRu0rR4qo083q7kC7P9xyOLPQwA==}
+    peerDependencies:
+      react: '>=17'
+      react-dom: '>=17'
+      svelte: '>=4'
+      vue: '>=3'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+      svelte:
+        optional: true
+      vue:
+        optional: true
 
   '@humanwhocodes/config-array@0.13.0':
     resolution: {integrity: sha512-DZLEEqFWQFiyK6h5YIeynKx7JlvCYWL0cImfSRXZ9l4Sg2efkFGTuFf6vzXjK1cq6IYkU+Eg/JizXw+TD2vRNw==}
@@ -1843,6 +1863,11 @@ snapshots:
       - supports-color
 
   '@eslint/js@8.57.1': {}
+
+  '@glitchlab/accessify@0.2.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
