@@ -23,12 +23,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Força o scroll do body a continuar funcionando caso o modal tente bloqueá-lo */
-body[style*="overflow: hidden"],
-body[style*="overflow:hidden"] {
-  overflow-y: auto !important;
-}
-
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #111; }
@@ -70,32 +64,22 @@ body[style*="overflow:hidden"] {
 }
 
 /* ==========================================================================
-   CORREÇÃO DEFITINIVA: Widget de Acessibilidade Mobile
+   CORREÇÃO CIRÚRGICA: Widget de Acessibilidade (UserWay / VLibras)
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Alvo ultra-agressivo cobrindo qualquer classe ou ID que contenha termos de acessibilidade */
-  div[class*="accessibility" i], 
-  div[id*="accessibility" i],
-  div[class*="access" i],
-  div[id*="access" i],
-  div[class*="userway" i],
+  /* Alvo apenas no MODAL/JANELA aberta, e NUNCA no botão flutuante pequeno */
   #uew-modal-container,
-  .vve-wrapper { 
+  .uew-modal,
+  .userway_p_wrapper,
+  div[id^="userway-accessibility-widget"] div[role="dialog"] { 
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
     height: 100vh !important;
     max-height: 100vh !important;
-    overflow-y: auto !important; /* Libera o scroll vertical interno caso passe da tela */
+    overflow-y: auto !important; /* Libera a rolagem para achar o botão de fechar */
     -webkit-overflow-scrolling: touch !important;
-    z-index: 999999 !important;   /* Força ficar no topo absoluto */
-  }
-
-  /* Garante que se houver um rodapé ou botão de fechar oculto embaixo, o container interno permita rolar */
-  div[class*="accessibility" i] > div,
-  div[id*="accessibility" i] > div {
-    max-height: 100vh !important;
-    overflow-y: auto !important;
+    z-index: 999999 !important;
   }
 }
