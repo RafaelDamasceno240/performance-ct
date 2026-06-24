@@ -42,12 +42,22 @@ export default function Navbar() {
     e.preventDefault()
     const target = document.querySelector(href)
     if (!target) return
+    
     const navH = parseInt(
       getComputedStyle(document.documentElement).getPropertyValue('--nav-h') || '80'
     )
     const top = target.getBoundingClientRect().top + window.scrollY - navH
+    
+    // Executa a rolagem suave
     window.scrollTo({ top, behavior: 'smooth' })
     setMenuOpen(false)
+
+    // --- ANIMAÇÃO DE TROCA DE PÁGINA ---
+    // Adiciona uma animação de pulso/fade na seção destino ao clicar
+    target.classList.remove('section-fade-in')
+    // Força o reflow do elemento para reiniciar a animação
+    void target.offsetWidth 
+    target.classList.add('section-fade-in')
   }, [])
 
   return (

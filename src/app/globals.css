@@ -79,3 +79,21 @@ body {
     pointer-events: none !important;
   }
 }
+
+/* ==========================================================================
+   ANIMAÇÃO DE TRANSIÇÃO DE SEÇÕES (NAVBAR CLICK)
+   ========================================================================== */
+@keyframes sectionReveal {
+  0% {
+    opacity: 0.3;
+    transform: scale(0.98) translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.section-fade-in {
+  animation: sectionReveal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
