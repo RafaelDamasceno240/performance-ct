@@ -102,27 +102,27 @@ export default function Navbar() {
         <ul
           className={`
             max-sm:fixed max-sm:top-[var(--nav-h)] max-sm:left-0 max-sm:right-0
-            max-sm:bg-black/97 max-sm:flex-col max-sm:gap-0
+            max-sm:bg-black max-sm:z-50 max-sm:flex-col max-sm:gap-0
             max-sm:overflow-hidden max-sm:transition-[max-height] max-sm:duration-400
-            max-sm:border-b max-sm:border-red-500/20
+            max-sm:border-none
             ${menuOpen ? 'max-sm:max-h-[300px]' : 'max-sm:max-h-0'}
             sm:flex sm:gap-10 sm:items-center list-none
           `}
         >
           {NAV_LINKS.map(({ href, label }) => (
-            <li key={href} className="max-sm:border-t max-sm:border-white/5">
+            <li key={href} className="max-sm:border-none">
               <a
                 href={href}
                 onClick={(e) => smoothScroll(e, href)}
                 className={`
-                  relative text-white no-underline text-base font-bold tracking-wide uppsercase
+                  relative text-white no-underline text-base font-bold tracking-wide uppercase
                   transition-colors duration-300 hover:text-[#ff0000]
-                  after:content-[''] after:absolute after:left-0 after:bottom-[-4px]
-                  after:h-[2px] after:bg-[#ff0000] after:transition-[width] after:duration-300
+                  sm:after:content-[''] sm:after:absolute sm:after:left-0 sm:after:bottom-[-4px]
+                  sm:after:h-[2px] sm:after:bg-[#ff0000] sm:after:transition-[width] sm:after:duration-300
                   max-sm:block max-sm:px-8 max-sm:py-4 max-sm:text-lg
                   ${activeLink === href.slice(1)
-                    ? 'text-[#ff0000] after:w-full'
-                    : 'after:w-0'
+                    ? 'text-[#ff0000] sm:after:w-full'
+                    : 'sm:after:w-0'
                   }
                 `}
               >
