@@ -23,6 +23,12 @@ body {
   overflow-x: hidden;
 }
 
+/* Força o scroll do body a continuar funcionando caso o modal tente bloqueá-lo */
+body[style*="overflow: hidden"],
+body[style*="overflow:hidden"] {
+  overflow-y: auto !important;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #111; }
@@ -64,13 +70,16 @@ body {
 }
 
 /* ==========================================================================
-   CORREÇÃO: Widget de Acessibilidade Mobile
+   CORREÇÃO DEFITINIVA: Widget de Acessibilidade Mobile
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Alvo em seletores comuns que essas ferramentas usam (divs com id/class contendo accessibility ou similares) */
-  div[class*="accessibility"], 
-  div[id*="accessibility"],
-  div[class*="access_"],
+  /* Alvo ultra-agressivo cobrindo qualquer classe ou ID que contenha termos de acessibilidade */
+  div[class*="accessibility" i], 
+  div[id*="accessibility" i],
+  div[class*="access" i],
+  div[id*="access" i],
+  div[class*="userway" i],
+  #uew-modal-container,
   .vve-wrapper { 
     position: fixed !important;
     top: 0 !important;
@@ -78,22 +87,15 @@ body {
     width: 100vw !important;
     height: 100vh !important;
     max-height: 100vh !important;
-    overflow-y: auto !important; /* Libera o scroll para achar o botão de fechar */
-    z-index: 99999 !important;   /* Garante que fique acima de tudo */
+    overflow-y: auto !important; /* Libera o scroll vertical interno caso passe da tela */
+    -webkit-overflow-scrolling: touch !important;
+    z-index: 999999 !important;   /* Força ficar no topo absoluto */
   }
-}
 
-/* ==========================================================================
-   CORREÇÃO: Menu Mobile com Fundo Sólido e Sobreposição
-   ========================================================================== */
-@media (max-width: 768px) {
-  /* Alvo no container do menu quando o hamburger está aberto */
-  .hamburger-open ~ nav, 
-  .hamburger-open + div,
-  nav {
-    /* Substitua pelo seletor correto do seu menu se souber, 
-       mas estas regras abaixo garantem o contraste básico no mobile */
-    background-color: #000000 !important; /* Força fundo preto sólido */
-    z-index: 50 !important;               /* Fica acima do Hero text */
+  /* Garante que se houver um rodapé ou botão de fechar oculto embaixo, o container interno permita rolar */
+  div[class*="accessibility" i] > div,
+  div[id*="accessibility" i] > div {
+    max-height: 100vh !important;
+    overflow-y: auto !important;
   }
 }
