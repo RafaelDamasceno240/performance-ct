@@ -64,16 +64,15 @@ body {
 }
 
 /* ==========================================================================
-   CORREÇÃO DEFINITIVA: Remove o widget do Accessify APENAS no Mobile
+   CORREÇÃO CIRÚRGICA: Oculta APENAS os elementos reais do Accessify no Mobile
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Alvos específicos que o Accessify injeta (Botão e a Janela inteira) */
-  #accessify-widget,
-  #accessify-widget-container,
-  .accessify-container,
-  div[class*="accessify" i],
-  div[id*="accessify" i],
-  iframe[src*="accessify" i] {
+  /* Alvos exatos e ultra-específicos do painel do Accessify, sem afetar o resto do site */
+  #accessify-widget-button,
+  #accessify-widget-screen,
+  #accessify-main-container,
+  .accessify-app,
+  iframe[src*="accessify.app"] {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
