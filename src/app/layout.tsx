@@ -16,26 +16,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
 
-        {/* Script cirúrgico para remover o Accessify se for celular */}
-        <Script id="remove-accessify-mobile" strategy="afterInteractive">
+        {/* Script cirúrgico: Remove a tag original do Accessify antes dela renderizar */}
+        <Script id="block-accessify-mobile" strategy="beforeInteractive">
           {`
             (function() {
               if (window.innerWidth <= 768) {
-                // Função que procura e deleta os elementos do Accessify
-                const removeAccessify = () => {
-                  const elements = document.querySelectorAll('[id*="accessify"], [class*="accessify"], iframe[src*="accessify"]');
-                  elements.forEach(el => el.remove());
-                };
-
-                // Executa imediatamente
-                removeAccessify();
-
-                // Fica vigiando a página caso o script demore para carregar e o injete depois
-                const observer = new MutationObserver(() => {
-                  removeAccessify();
+                // Remove qualquer tag script do Accessify que tente entrar na página
+                const observer = new MutationObserver((mutations) => {
+                  mutations.forEach((mutation) => {
+                    mutation.addedNodes.forEach((node) => {
+                      if (node.tagName === 'SCRIPT' && (node.src.includes('accessify') || node.id.includes('accessify'))) {
+                        node.remove();
+                      }
+                      if (node.tagName === 'IFRAME' && node.src.includes('accessify')) {
+                        node.remove();
+                      }
+                    });
+                  });
                 });
 
-                observer.observe(document.body, { childList: true, subtree: true });
+                observer.observe(document.documentElement, { childList: true, subtree: true });
               }
             })();
           `}
