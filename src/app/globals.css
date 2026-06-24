@@ -64,22 +64,25 @@ body {
 }
 
 /* ==========================================================================
-   CORREÇÃO CIRÚRGICA: Widget de Acessibilidade (UserWay / VLibras)
+   SOLUÇÃO: Esconde o botão/janela de acessibilidade APENAS no mobile
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Alvo apenas no MODAL/JANELA aberta, e NUNCA no botão flutuante pequeno */
+  /* Remove totalmente o widget da tela em celulares para evitar que trave o site */
+  #userwayAccessibilityWidget,
+  .userway_buttons_wrapper,
   #uew-modal-container,
   .uew-modal,
-  .userway_p_wrapper,
-  div[id^="userway-accessibility-widget"] div[role="dialog"] { 
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
-    overflow-y: auto !important; /* Libera a rolagem para achar o botão de fechar */
-    -webkit-overflow-scrolling: touch !important;
-    z-index: 999999 !important;
+  div[class*="accessibility" i],
+  div[id*="accessibility" i],
+  div[class*="userway" i],
+  div[id*="userway" i],
+  .vve-wrapper,
+  iframe[title*="accessibility" i],
+  #vbra-botaolibras,
+  .access-widget {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 }
