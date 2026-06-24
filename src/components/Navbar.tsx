@@ -40,7 +40,8 @@ export default function Navbar() {
 
   const smoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault()
-    const target = document.querySelector(href)
+    // Definimos explicitamente como HTMLElement para evitar erros no build da Vercel
+    const target = document.querySelector(href) as HTMLElement
     if (!target) return
     
     const navH = parseInt(
@@ -48,15 +49,12 @@ export default function Navbar() {
     )
     const top = target.getBoundingClientRect().top + window.scrollY - navH
     
-    // Executa a rolagem suave
     window.scrollTo({ top, behavior: 'smooth' })
     setMenuOpen(false)
 
-    // --- ANIMAÇÃO DE TROCA DE PÁGINA ---
-    // Adiciona uma animação de pulso/fade na seção destino ao clicar
+    // Executa a animação de transição na seção de destino
     target.classList.remove('section-fade-in')
-    // Força o reflow do elemento para reiniciar a animação
-    void target.offsetWidth 
+    void target.offsetWidth // Força o reflow para reiniciar a animação
     target.classList.add('section-fade-in')
   }, [])
 
