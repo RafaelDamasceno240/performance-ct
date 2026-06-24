@@ -64,22 +64,16 @@ body {
 }
 
 /* ==========================================================================
-   SOLUÇÃO: Esconde o botão/janela de acessibilidade APENAS no mobile
+   CORREÇÃO DEFINITIVA: Remove o widget do Accessify APENAS no Mobile
    ========================================================================== */
 @media (max-width: 768px) {
-  /* Remove totalmente o widget da tela em celulares para evitar que trave o site */
-  #userwayAccessibilityWidget,
-  .userway_buttons_wrapper,
-  #uew-modal-container,
-  .uew-modal,
-  div[class*="accessibility" i],
-  div[id*="accessibility" i],
-  div[class*="userway" i],
-  div[id*="userway" i],
-  .vve-wrapper,
-  iframe[title*="accessibility" i],
-  #vbra-botaolibras,
-  .access-widget {
+  /* Alvos específicos que o Accessify injeta (Botão e a Janela inteira) */
+  #accessify-widget,
+  #accessify-widget-container,
+  .accessify-container,
+  div[class*="accessify" i],
+  div[id*="accessify" i],
+  iframe[src*="accessify" i] {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
